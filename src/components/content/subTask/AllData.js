@@ -11,28 +11,28 @@ const meetings = [
   {
     id: 1,
     title: "Follow Up",
-    date: "2023-04-14",
+    date: "2023-05-03",
     time: "10:00 pm - 4:30 pm",
     status: "completed",
   },
   {
     id: 2,
     title: "Project review",
-    date: "2023-04-12",
+    date: "2023-05-04",
     time: "14:00",
     status: "completed",
   },
   {
     id: 3,
     title: "Client meeting",
-    date: "2023-04-16",
+    date: "2023-05-06",
     time: "11:00",
     status: "on-going",
   },
   {
     id: 4,
     title: "Product demo",
-    date: "2023-04-67",
+    date: "2023-04-30",
     time: "15:00",
     status: "on-going",
   },
@@ -74,7 +74,7 @@ const AllData = () => {
 
   return (
     <div className="h-full overflow-auto mx-6 ">
-      <div style={{ height: "400px", overflow: "auto" }}>
+      <div style={{ height: "250px", overflow: "auto" }}>
         {/* Today's meetings */}
 
         <div className="meetings-container mb-4 mt-4">
@@ -82,7 +82,7 @@ const AllData = () => {
           <div className="today-meetings">
             <Title level={5}>Today</Title>
 
-            <div className="flex">
+            <div className="flex mb-2">
               <div className="meet-icon w-fit text-white bg-blue-400 rounded-full my-2 p-2 items-center justify-center  flex">
                 <FaVideo className="m-1 " />
               </div>
@@ -94,9 +94,9 @@ const AllData = () => {
             <Row>
               {groupedMeetings[todayString] &&
                 groupedMeetings[todayString].map((meeting) => (
-                  <Col key={meeting.id} xs={24} lg={22}>
+                  <Col key={meeting.id} xs={24} lg={22} className="mb-4">
                     <Card className={`meeting-card ${meeting.status} `}>
-                      <div className="card-meet-wrap relative">
+                      <div className="card-meet-wrap relative ">
                         <div className="dot-icon absolute -top-3 -right-3">
                           <BsThreeDotsVertical />
                         </div>

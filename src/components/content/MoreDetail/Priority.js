@@ -15,6 +15,9 @@ import TaskModal from "./ModalsAction/TaskModal";
 import MeetingModal from "./ModalsAction/MeetingModal";
 import EmailModal from "./ModalsAction/EmailModal";
 import CreateDeal from "./ModalsAction/CreateDeal";
+import TransferModal from "./ModalsAction/TransferModal";
+import VerificationModal from "./ModalsAction/VerificationModal";
+import SmsModal from "./ModalsAction/SmsModal";
 
 const Priority = ({ cardData }) => {
   const [isNoteModalVisible, setIsNoteModalVisible] = useState(false);
@@ -23,6 +26,9 @@ const Priority = ({ cardData }) => {
   const [isMeetModalVisible, setIsMeetModalVisible] = useState(false);
   const [isEmailModalVisible, setIsEmailModalVisible] = useState(false);
   const [isDealModalVisible, setIsDealModalVisible] = useState(false);
+  const [isTransferModalVisible, setIsTransferModalVisible] = useState(false);
+  const [isThirdModalVisible, setIsThirdModalVisible] = useState(false);
+  const [isSMSModalVisible, setIsSMSModalVisible] = useState(false);
 
   const showNoteModal = () => {
     setIsNoteModalVisible(true);
@@ -42,6 +48,12 @@ const Priority = ({ cardData }) => {
   const showDealModal = () => {
     setIsDealModalVisible(true);
   };
+  const showTransferModal = () => {
+    setIsTransferModalVisible(true);
+  };
+  const showSMSModal = () => {
+    setIsSMSModalVisible(true);
+  };
 
   const handleNoteModalCancel = () => {
     setIsNoteModalVisible(false);
@@ -60,6 +72,20 @@ const Priority = ({ cardData }) => {
   };
   const handleDealModalCancel = () => {
     setIsDealModalVisible(false);
+  };
+  const handleTransferModalCancel = () => {
+    setIsTransferModalVisible(false);
+  };
+  const handleThirdModalCancel = () => {
+    setIsThirdModalVisible(false);
+  };
+  const handleSMSModalCancel = () => {
+    setIsSMSModalVisible(false);
+  };
+
+  const handleSaveClick = () => {
+    // handle save logic here
+    setIsThirdModalVisible(true);
   };
 
   const getButtonStyle = (text) => {
@@ -81,7 +107,7 @@ const Priority = ({ cardData }) => {
   };
   return (
     <>
-      <div className="priority-wrap border-b-2 border-gray-300">
+      <div className="priority-wrap border-b-2 border-gray-300 ">
         <div className="flex lg:px-10 px-5 pt-7">
           <div className="lg:w-1/12 w-1/5 mt-2">
             <div className="card-img-wrap flex justify-center items-center ">
@@ -91,115 +117,142 @@ const Priority = ({ cardData }) => {
                 alt={cardData.title}
               />
             </div>
+
+
           </div>
-          <div className="w-full px-4  ">
-            <h3 className="text-lg font-medium ">{cardData.title}</h3>
-            <div className="mt-1">
-              <button className="priority-btn mt">
-                {" "}
-                <span>
-                  <AiOutlinePlus />
-                </span>
-                &nbsp;Set Priority
+
+          <div className="lead-detail-wrap flex w-full mr-6 relative ">
+
+            <div className=" px-2   w-full  ">
+              <h3 className="text-lg font-medium ">{cardData.title}</h3>
+              <div className="mt-1">
+                <button className="priority-btn ">
+                  {" "}
+                  <span>
+                    <AiOutlinePlus />
+                  </span>
+                  &nbsp;Set Priority
+                </button>
+              </div>
+
+              <div className="last-activity text-gray-600 text-base card-description">
+                Last Activity: 2 Jan, 5:45 pm
+              </div>
+            </div>
+
+            <div className="absolute right-0">
+
+              <button onClick={showDealModal} className="mt-2 md:mx-auto text-blue-400 font-bold  text-sm lg:py-2 lg:px-2 border p-1 px-2 border-blue-700 rounded " >
+
+                create deal
               </button>
             </div>
 
-            <div className="last-activity py-3">
-              Last Activity: 2 Jan, 5:45 pm
-            </div>
           </div>
+
+
+
         </div>
 
-        <div className="contact-btn-wrap lg:px-10 px-4 pb-10 pt-3 flex flex-wrap justify-center sm:justify-start ">
+        <div className="contact-btn-wrap lg:px-10 px-2 pb-10 pt-3 flex flex-wrap justify-center sm:justify-start ">
 
-          <button  onClick={showCallModal} className="contact-btn flex items-center bg-6192FF rounded-md px-4 py-2 ">
+          <button onClick={showCallModal} className="contact-btn flex items-center bg-6192FF rounded-md px-2 py-2 ">
             <IoMdCall className="mr-2 text-white" size={20} />
             <span className="text-white font-normal text-base">Call</span>
           </button>
-          <button onClick={showEmailModal} className="contact-btn flex items-center bg-6192FF rounded-md px-4 py-2">
+          <button onClick={showEmailModal} className="contact-btn flex items-center bg-6192FF rounded-md px-2 py-2">
             <HiOutlineMail className="mr-2 text-white" size={20} />
             <span className="text-white font-normal text-base">Email</span>
           </button>
-          <button  onClick={showDealModal} className="contact-btn flex items-center bg-6192FF rounded-md px-4 py-2">
+          <button onClick={showSMSModal} className="contact-btn flex items-center bg-6192FF rounded-md px-2 py-2">
             <HiOutlineChatAlt2 className="mr-2 text-white" size={20} />
             <span className="text-white font-normal text-base">SMS</span>
           </button>
-          <button  onClick={showMeetModal} className="contact-btn flex items-center bg-6192FF rounded-md px-4 py-2">
+          <button onClick={showMeetModal} className="contact-btn flex items-center bg-6192FF rounded-md px-2 py-2">
             <FaVideo className="mr-2 text-white" size={20} />
             <span className="text-white font-normal text-base">Meeting</span>
           </button>
           <button
-            className="contact-btn flex items-center bg-6192FF rounded-md px-4 py-2"
+            className="contact-btn flex items-center bg-6192FF rounded-md px-2 py-2"
             onClick={showNoteModal}
           >
             <div className="text-white font-normal text-base">
               <HiDocumentText className="mr-1" />
             </div>
-            <div className="text-white font-normal text-base">Notes</div>
+            <span className="text-white font-normal text-base">Notes</span>
           </button>
-          <button onClick={showTaskModal} className="contact-btn flex items-center bg-6192FF rounded-md px-4 py-2">
+          <button onClick={showTaskModal} className="contact-btn flex items-center bg-6192FF rounded-md px-2 py-2">
             <HiFolderOpen className="mr-1 text-white" size={20} />
             <span className="text-white font-normal text-base">Task</span>
           </button>
-          <button className="transfer-btn flex items-center bg-6192FF rounded-md px-4 py-2">
+          <button onClick={showTransferModal} className="transfer-btn flex items-center bg-6192FF rounded-md px-2 py-2">
             <span className="text-white font-normal text-base">Transfer</span>
           </button>
         </div>
+        <div className="h-full overflow-auto" >
+          <div style={{ height: "145px", overflow: "auto" }} className="pr-10 pb-4 lg:mx-11 mx-9 ">
+            <Row>
+              <Col xs={12} sm={6}>
+                <div className="main-info-wrap">
+                  <div className="info-title">lead Type</div>
+                  <button
+                    style={getButtonStyle(cardData.leadType)}
+                    className="rounded-2xl leadtype-btn"
+                  >
+                    {cardData.leadType}
+                  </button>
+                </div>
+              </Col>
+              <Col xs={12} sm={6}>
+                <div className="main-info-wrap">
+                  <div className="info-title">Email Id</div>
+                  <div className="sub-info ">{cardData.email}</div>
+                </div>
+              </Col>
+              <Col xs={12} sm={6}>
+                {" "}
+                <div className="main-info-wrap">
+                  <div className="info-title">Contact Number</div>
+                  <div className="sub-info ">{cardData.contactNumber}</div>
+                </div>
+              </Col>
+              <Col xs={12} sm={6}>
+                <div className="main-info-wrap">
+                  <div className="info-title">Lead Source</div>
+                  <div className="sub-info ">{cardData.leadSource}</div>
+                </div>
+              </Col>
+              <Col xs={12} sm={6}>
+                <div className="main-info-wrap">
+                  <div className="info-title">Lead Owner</div>
+                  <div className="sub-info ">{cardData.leadOwner}</div>
+                </div>
+              </Col>
+              <Col xs={12} sm={6}>
+                <div className="main-info-wrap">
+                  <div className="info-title">Lead Created</div>
+                  <div className="sub-info ">{cardData.leadCreated}</div>
+                </div>
+              </Col>
 
-        <div className="pr-10 pb-4">
-          <Row>
-            <Col xs={8} sm={6}>
-              <div className="main-info-wrap">
-                <div className="info-title">lead Type</div>
-                <button
-                  style={getButtonStyle(cardData.leadType)}
-                  className="rounded-2xl leadtype-btn"
-                >
-                  {cardData.leadType}
-                </button>
-              </div>
-            </Col>
-            <Col xs={8} sm={6}>
-              <div className="main-info-wrap">
-                <div className="info-title">Email Id</div>
-                <div className="sub-info ">{cardData.email}</div>
-              </div>
-            </Col>
-            <Col xs={8} sm={6}>
-              {" "}
-              <div className="main-info-wrap">
-                <div className="info-title">Contact Number</div>
-                <div className="sub-info ">{cardData.contactNumber}</div>
-              </div>
-            </Col>
-            <Col xs={8} sm={6}>
-              <div className="main-info-wrap">
-                <div className="info-title">Lead Source</div>
-                <div className="sub-info ">{cardData.leadSource}</div>
-              </div>
-            </Col>
-            <Col xs={8} sm={6}>
-              <div className="main-info-wrap">
-                <div className="info-title">Lead Owner</div>
-                <div className="sub-info ">{cardData.leadOwner}</div>
-              </div>
-            </Col>
-            <Col xs={8} sm={6}>
-              <div className="main-info-wrap">
-                <div className="info-title">Lead Created</div>
-                <div className="sub-info ">{cardData.leadCreated}</div>
-              </div>
-            </Col>
-            <Col xs={8} sm={6}>
-              <div className="main-info-wrap">
-                <div className="info-title">location</div>
-                <div className="sub-info ">Delhi</div>
-              </div>
-            </Col>
-          </Row>
+              <Col xs={12} sm={6}>
+                <div className="main-info-wrap">
+                  <div className="info-title">Pincode</div>
+                  <div className="sub-info ">110066</div>
+                </div>
+              </Col>
+
+              <Col xs={12} sm={6}>
+                <div className="main-info-wrap">
+                  <div className="info-title">Job Function</div>
+                  <div className="sub-info ">Delhi</div>
+                </div>
+              </Col>
+            </Row>
+          </div>
         </div>
-        
       </div>
+
       <NotesModal
         visible={isNoteModalVisible}
         onCancel={handleNoteModalCancel}
@@ -220,9 +273,24 @@ const Priority = ({ cardData }) => {
         visible={isEmailModalVisible}
         onCancel={handleEmailModalCancel}
       />
+      <SmsModal
+        visible={isSMSModalVisible}
+        onCancel={handleSMSModalCancel}
+      />
       <CreateDeal
         visible={isDealModalVisible}
         onCancel={handleDealModalCancel}
+      />
+      <TransferModal
+        visible={isTransferModalVisible}
+        onCancel={handleTransferModalCancel}
+        onSaveClick={handleSaveClick}
+        isThirdModalVisible={isThirdModalVisible}
+      />
+      <VerificationModal
+        visible={isThirdModalVisible}
+        onCancel={handleThirdModalCancel}
+
       />
     </>
   );

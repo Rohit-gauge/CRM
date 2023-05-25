@@ -15,7 +15,7 @@ const AllTask = () => {
               <Col span={24}>
                 <div className=" p-2 px-4">
 
-                  <div className="task-button-update flex absolute right-10 top-4 space-x-3">
+                  <div className="task-button-update flex absolute lg:right-10 right-2 top-4 space-x-3">
                     <div className="edit"><BsPencilFill size={18} /></div>
                     <div className="del"><RiDeleteBin5Line size={19} className="text-red-500" /></div>
                   </div>

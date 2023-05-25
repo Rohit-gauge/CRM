@@ -18,8 +18,8 @@ const NotesList = () => {
                       <img className="call-image ml-4  " src={cardData.image} />
                     </div>
                   </div>
-                  <div className="w-full  ">
-                    <h3 className="text-sm font-medium ">{cardData.title}</h3>
+                  <div className="w-full lg:px-2  ">
+                    <h3 className="text-sm font-medium  ">{cardData.title}</h3>
                     <p className="text-gray-600 text-xs  call-time">
                       10th March 2022, 6:30 pm
                     </p>
@@ -60,7 +60,7 @@ const NotesList = () => {
                       <img className="call-image ml-4  " src={cardData.image} />
                     </div>
                   </div>
-                  <div className="w-full  ">
+                  <div className="w-full lg:px-2 ">
                     <h3 className="text-sm font-medium ">{cardData.title}</h3>
                     <p className="text-gray-600 text-xs  call-time">
                       10th March 2022, 6:30 pm

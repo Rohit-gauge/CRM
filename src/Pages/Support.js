@@ -4,22 +4,22 @@ import Detail from "../components/content/Detail";
 import { CardDataContext } from "../components/cardContext/CardContext";
 import Cardlead from "../components/content/CardInfo";
 import SupportCard from "../components/supportcontent/SupportCard";
-import CreateLead from "../components/content/MoreDetail/ModalsAction/CreateLead";
+import TicketDetail from "../components/supportcontent/TicketDetail";
 
 const Support = () => {
   const [selectedCard, setSelectedCard] = useState(null);
 
-  const handleCardSelection = (cardData) => {
-    setSelectedCard(cardData);
+  const handleCardSelection = (supportData) => {
+    setSelectedCard(supportData);
   };
 
   useEffect(() => {
     if (!selectedCard) {
-      setSelectedCard(cardData[0]); // Set the initial selected card to the first card in the cardData array
+      setSelectedCard(supportData[0]); // Set the initial selected card to the first card in the supportData array
     }
   }, [selectedCard]);
 
-  const cardData = [
+  const supportData = [
     {
       id: 1,
       title: "Harish Verma",
@@ -27,12 +27,18 @@ const Support = () => {
       contactNumber: "   9876543210",
       leadSource: "Website",
       leadOwner: "harish",
-      leadCreated: "2022-03-15",
-      description: "Meeting is scheduled for 5th july at 3:00 pm.",
+      DeviceId: "293@hds",
+      TicketId: "73e823",
+      RaisedId: "Chatbot, 10 jan 10:30",
+      leadCreated: "13th May 2022 at 3:00",
+      subject: "Issue with water quality ",
+      description: "I have noticed that the water coming out of my water purifier has an unusual taste and smell. I'm concerned about the quality of the water being",
       image:
         "https://ik.imagekit.io/aq3ybtarw/CRM/irene-strong-v2aKnjMbP_k-unsplash-min.jpg?updatedAt=1680421088764",
-      leadType: "Cold Lead",
+      leadType: "Low Priority",
+      isOnline: true,
     },
+
   ]
 
 
@@ -59,15 +65,15 @@ const Support = () => {
           </Col>
         </Row>
       </div> */}
-        <div className=" sm:m-20 mt-20 md:mt-4 px-6  ">
+      <div className=" sm:m-20 mt-20 md:mt-4 px-6 ">
        
-        <div className=" rounded-lg md:mt-10 mt-4 ">
+       <div className=" rounded-lg md:mt-10 mt-4 ">
          <div className="grid grid-cols-12 gap-4 mb-4">
            <div className="col-span-full md:col-span-4 ">
-           <Cardlead onCardSelect={handleCardSelection} />
+           <SupportCard onCardSelect={handleCardSelection} />
            </div>
-           <div className="col-span-full md:col-span-8 sm:mx-4  ">
-             <Detail   />
+           <div className="col-span-full md:col-span-8 sm:mx-4   ">
+             <TicketDetail />
            </div>
          </div>
        </div>

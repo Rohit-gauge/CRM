@@ -1,10 +1,19 @@
-
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Sidebar from './components/Headers/Sidebar';
+import Dashboard from './Pages/Dashboard';
 import './App.css';
-import Sidebar from "./Components/header/Sidebar"
+import Support from './Pages/Support';
 
 function App() {
   return (
-    <Sidebar />
+    <BrowserRouter>
+      <Sidebar>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/support" element={<Support />} />
+        </Routes>
+      </Sidebar>
+    </BrowserRouter>
   );
 }
 

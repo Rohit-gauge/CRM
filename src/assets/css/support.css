@@ -1,0 +1,88 @@
+.remain-btn {
+  background: #f38080;
+  border-radius: 4px;
+  padding: 4px 10px;
+  color: white;
+}
+
+.ticket-created {
+  font-weight: 200;
+  font-size: 11px;
+  line-height: 16px;
+  font-family: "Inter";
+  color: #696969;
+}
+
+.selected-ticket {
+  background-color: #FFE7E7;
+  border: 2px solid #F25D5D;
+  transform: translateY(3px);
+
+}
+
+.online::after {
+  margin-left: 4px;
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #5CDC5B;
+
+}
+
+:where(.css-dev-only-do-not-override-1e3x2xa).ant-steps.ant-steps-dot .ant-steps-item-tail::after,
+:where(.css-dev-only-do-not-override-1e3x2xa).ant-steps.ant-steps-dot.ant-steps-small .ant-steps-item-tail::after {
+  width: calc(100% - 42px);
+  height: 3px;
+  margin-inline-start: 26px;
+}
+
+:where(.css-dev-only-do-not-override-1e3x2xa).ant-steps .ant-steps-item-process .ant-steps-item-icon>.ant-steps-icon .ant-steps-icon-dot {
+  background: #36d536;
+  margin-top: 5px;
+}
+
+:where(.css-dev-only-do-not-override-1e3x2xa).ant-steps {
+  width: 90%;
+}
+
+:where(.css-dev-only-do-not-override-1e3x2xa).ant-steps.ant-steps-dot .ant-steps-item-title,
+:where(.css-dev-only-do-not-override-1e3x2xa).ant-steps.ant-steps-dot.ant-steps-small .ant-steps-item-title {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.5714285714285714;
+}
+
+.default-title {
+  margin-top: 4px;
+}
+
+.notification-history-wrap {
+  background: #FFFFFF;
+  box-shadow: -4px -4px 8px rgba(0, 0, 0, 0.05), 4px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.small-card-wrap {
+
+  background: #ECECFE;
+}
+
+.d-health-wrap {
+  background-color: #EFF4FF;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+
+.ant-steps.ant-steps-vertical.steps-container.css-dev-only-do-not-override-1e3x2xa.ant-steps-small.ant-steps-dot {
+  padding-left: 50px;
+}
+
+:where(.css-dev-only-do-not-override-1e3x2xa).ant-steps.ant-steps-dot .ant-steps-item-title, :where(.css-dev-only-do-not-override-1e3x2xa).ant-steps.ant-steps-dot.ant-steps-small .ant-steps-item-title {  
+justify-content: start  !important;
+}
+}

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 // import TaskDetails from "../taskactivities/TaskDetails";
 import TaskList from "../taskactivities/TaskList/TaskList";
 import ActivityList from "../taskactivities/ActivityList";
@@ -20,13 +20,13 @@ const Taskbar = () => {
 
   return (
     <div className="flex flex-col h-full lg:mx-14 mt-7">
-      <div className="flex justify-between items-center  text-black py-4 px-4 ">
+      <div className="flex lg:justify-between justify-center items-center  text-black py-4 px-0 sm:px-4 ">
       
         <div className="flex ">
         
           <button
             onClick={() => handleClick("activities")}
-            className={`lg:mr-8 mr-4 ${
+            className={`lg:mr-8 mr-2 ${
               activeTab === "activities" ? "bg-blue-500" : ""
             } taskbar-btn`}
           >
@@ -34,7 +34,7 @@ const Taskbar = () => {
           </button>
           <button
             onClick={() => handleClick("task")}
-            className={`lg:mr-8 mr-4 ${
+            className={`lg:mr-8 mr-2 ${
               activeTab === "task" ? "bg-blue-500" : ""
             } taskbar-btn`}
           >
@@ -42,19 +42,19 @@ const Taskbar = () => {
           </button>
           <button
             onClick={() => handleClick("notes")}
-            className={`lg:mr-8 mr-4 ${activeTab === "notes" ? "bg-blue-500" : ""}  taskbar-btn`}
+            className={`lg:mr-8 mr-2 ${activeTab === "notes" ? "bg-blue-500" : ""}  taskbar-btn`}
           >
             Notes
           </button>
           <button
             onClick={() => handleClick("deals")}
-            className={`lg:mr-8 mr-4 ${activeTab === "deals" ? "bg-blue-500" : ""} taskbar-btn`}
+            className={`lg:mr-8 mr-2 ${activeTab === "deals" ? "bg-blue-500" : ""} taskbar-btn`}
           >
             Deals
           </button>
           <button
             onClick={() => handleClick("analytics")}
-            className={`lg:mr-8 mr-4 ${activeTab === "analytics" ? "bg-blue-500" : ""} taskbar-btn`}
+            className={`lg:mr-8 mr-2 ${activeTab === "analytics" ? "bg-blue-500" : ""} taskbar-btn`}
           >
            Analytics
           </button>

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { FiSettings } from 'react-icons/fi';
 import { AiOutlineInbox } from 'react-icons/ai';
 import { RxPencil2 } from 'react-icons/rx';
-import { HiUserGroup } from 'react-icons/hi';
 import { HiMenu } from 'react-icons/hi';
+import { HiUserGroup } from 'react-icons/hi';
 import { IoClose } from 'react-icons/io5';
 import { NavLink } from 'react-router-dom';
 
@@ -16,7 +16,7 @@ const Sidebar = ({ children }) => {
       icon: <HiUserGroup />,
     },
     {
-      path: '/about',
+      path: '/support',
       icon: <RxPencil2 />,
     },
     {
@@ -34,43 +34,42 @@ const Sidebar = ({ children }) => {
   };
 
   return (
-    <div className="container flex flex-col md:flex-row">
-      <div className={`sidebar lg:bg-gray-800 text-gray-100 lg:py-4 py-4 px-6 lg:px-2 flex justify-between md:block ${isMobileMenuOpen ? 'mobile-menu-open' : ''}`}>
+    <div >
+      <div className={`sidebar lg:bg-gray-800 text-gray-100 lg:py-4 py-4 px-3 lg:px-2 flex justify-between lg:block ${isMobileMenuOpen ? 'mobile-menu-open' : ''}`}>
         {/* <div className="text-xl font-bold">Sidebar</div> */}
         {/* Hamburger icon */}
         <div
-          className="md:hidden cursor-pointer text-3xl relative"
+          className="lg:hidden cursor-pointer text-3xl relative"
           onClick={toggleMobileMenu}
         >
           {isMobileMenuOpen ? (
-            <IoClose size={20} className='text-white absolute cursor-pointer -top-3 left-10 ' />
+            <IoClose size={18} className='text-white absolute cursor-pointer -top-3 left-4 ' />
           ) : (
             <HiMenu />
           )}
         </div>
         {/* Menu items */}
         <ul
-          className={`${
+          className={`pt-4 lg:pt-2 ${
             isMobileMenuOpen ? 'block' : 'hidden'
-          } md:block`}
+          } lg:block`}
         >
           {menuItem.map((item, index) => (
             <NavLink
               to={item.path}
               key={index}
-              className="link py-2 px-2 flex hover:bg-gray-700 rounded transition duration-200"
-              activeClassName="active bg-gray-700"
+              className="link py-2 px-4 flex hover:bg-gray-700 rounded transition duration-200"
+              activeclassname="active bg-gray-700"
             >
               <div className="icon ">{item.icon}</div>
-              {/* <div className="text-sm font-medium">
-                {item.path}
-              </div> */}
+             
             </NavLink>
           ))}
         </ul>
       </div>
 
-      <main className="flex-1 p-4">{children}</main>
+      <main className="main">{children}</main>
+
     </div>
   );
 };

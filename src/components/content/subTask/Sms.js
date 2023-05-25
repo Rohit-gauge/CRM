@@ -31,7 +31,6 @@ const Sms = () => {
       name: "Mathew",
       image: "https://via.placeholder.com/150",
     },
-   
   ];
 
   return (
@@ -87,12 +86,10 @@ const Sms = () => {
           </Row>
 
           {/* add send message button code here  */}
-
-          </div>
+        </div>
       </div>
-  
 
-          <div className="send-msg-btn flex items-center px-5">
+      {/* <div className=" flex items-center px-5">
             <div className="relative send-msg-wrap">
               <input
                 className="bg-gray-100 bg-lr-br  text-black w-full rounded-sm sms-input px-4 pl-8"
@@ -107,9 +104,23 @@ const Sms = () => {
             <button onClick={handleSend} className="bg-blue-400 text-white sms-button px-4 bg-rl-br">
               Send Message
             </button>
-          </div>
-          </>
-     
+          </div> */}
+      <div className="chat-input lg:px-6 lg:w-11/12  ">
+        <div className="input-wrap relative ">
+          <input
+            className="bg-gray-100 bg-lr-br  text-black w-full   px-4 "
+            placeholder="Type Message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+          <button>Send</button>
+          <div className="absolute mic lg:top-7 top-6 lg:right-36 right-28  ml-4">
+                <FiMic size={20} color="#484848" />
+              </div>
+        </div>
+       
+      </div>
+    </>
   );
 };
 

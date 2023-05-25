@@ -1,33 +1,40 @@
 import React, { useState, useEffect } from "react";
 // import { Select } from "antd";
-import { HiFilter } from "react-icons/hi";
+import { HiFilter, HiBookOpen } from "react-icons/hi";
 import { AiOutlineSearch } from "react-icons/ai";
 import { AiOutlinePlus } from "react-icons/ai";
 import { MdNotifications } from "react-icons/md";
 
 import { Input } from "antd";
-import CreateLead from "./MoreDetail/ModalsAction/CreateLead";
-import FilterModal from "./MoreDetail/ModalsAction/FilterModal";
+import FilterModal from "../supportcontent/ModalSupport/TicketFilter";
+import CreateTicket from "./ModalSupport/CreateTicketModal";
 
-const CardInfo = ({ onCardSelect }) => {
+const SupportCard = ({ onCardSelect }) => {
+  const [isTicketModalVisible, setIsTicketModalVisible] = useState(false);
+
+
+
+
   // Function to get button style based on text
   const [selectedCard, setSelectedCard] = useState(0); // state to hold selected card data
   const [selectedCardId, setSelectedCardId] = useState(null);
-  const leadTypes = ["Cold Lead", "Warm Lead", "Hot Lead"];
+  
+  const leadTypes = ["Low Priority", "High Priority", "High Priority"];
   const [selectedLeadType, setSelectedLeadType] = useState(null);
 
   const [isFilterModalVisible, setIsFilterModalVisible] = useState(false);
   const [isLeadModalVisible, setIsLeadModalVisible] = useState(false);
 
-  const showLeadModal = () => {
-    setIsLeadModalVisible(true);
+  const showTicketModal = () => {
+    setIsTicketModalVisible(true);
   };
+
   const showFilterModal = () => {
     setIsFilterModalVisible(true);
   };
 
-  const handleLeadModalCancel = () => {
-    setIsLeadModalVisible(false);
+  const handleTicketModalCancel = () => {
+    setIsTicketModalVisible(false);
   };
   const handleFilterModalCancel = () => {
     setIsFilterModalVisible(false);
@@ -38,13 +45,13 @@ const CardInfo = ({ onCardSelect }) => {
       backgroundColor: "#000000", // Default color
       color: "#FFFFFF", // Default text color
     };
-    if (text === "Cold Lead") {
+    if (text === "Low Priority") {
       buttonStyle.backgroundColor = "#C7FDBE";
       buttonStyle.color = "#2e8a2c";
-    } else if (text === "Hot Lead") {
+    } else if (text === "High Priority") {
       buttonStyle.backgroundColor = "#FDC1BE";
       buttonStyle.color = "#8A3D2C";
-    } else if (text === "Warm Lead") {
+    } else if (text === "High Priority") {
       buttonStyle.backgroundColor = "#FDD8BE";
       buttonStyle.color = "#8A4E2C";
     }
@@ -52,7 +59,7 @@ const CardInfo = ({ onCardSelect }) => {
   };
 
   // Dummy data for cards
-  const cardData = [
+  const supportData = [
     {
       id: 1,
       title: "Harish Verma",
@@ -60,11 +67,16 @@ const CardInfo = ({ onCardSelect }) => {
       contactNumber: "   9876543210",
       leadSource: "Website",
       leadOwner: "harish",
-      leadCreated: "2022-03-15",
-      description: "Meeting is scheduled for 5th july at 3:00 pm.",
+      DeviceId: "293@hds",
+      TicketId: "73e823",
+      RaisedId: "Chatbot, 10 jan 10:30",
+      leadCreated: "13th May 2022 at 3:00",
+      description: "I have noticed that the water coming out of my water purifier has an unusual taste and smell. I'm concerned about the quality of the water being",
+      subject: "Issue with water quality ",
       image:
         "https://ik.imagekit.io/aq3ybtarw/CRM/irene-strong-v2aKnjMbP_k-unsplash-min.jpg?updatedAt=1680421088764",
-      leadType: "Cold Lead",
+      leadType: "Low Priority",
+      isOnline: true,
     },
     {
       id: 2,
@@ -72,12 +84,17 @@ const CardInfo = ({ onCardSelect }) => {
       email: "mohan@example.com",
       contactNumber: "   9876543210",
       leadSource: "Referral",
+
+      DeviceId: "293@hds",
+      TicketId: "73e823",
+      RaisedId: "Chatbot, 10 jan 10:30",
       leadOwner: "Mohan",
-      leadCreated: "2022-02-28",
-      description: "Call is scheduled for 5th july at 3:00 pm",
+      leadCreated: "13th May 2022 at 3:00",
+      subject: "Issue with water quality ",
       image:
         "https://ik.imagekit.io/aq3ybtarw/CRM/irene-strong-v2aKnjMbP_k-unsplash-min.jpg?updatedAt=1680421088764",
-      leadType: "Hot Lead",
+      leadType: "High Priority",
+      isOnline: false,
     },
     {
       id: 3,
@@ -85,58 +102,61 @@ const CardInfo = ({ onCardSelect }) => {
       email: "disha@example.com",
       contactNumber: "   9876543210",
       leadSource: "Event",
+
+      DeviceId: "293@hds",
+      TicketId: "73e823",
+      RaisedId: "Chatbot, 10 jan 10:30",
+      description: "I have noticed that the water coming out of my water purifier has an unusual taste and smell. I'm concerned about the quality of the water being",
       leadOwner: "Disha",
-      leadCreated: "2022-01-15",
-      description: "Follow up is pending.",
+      leadCreated: "13th May 2022 at 3:00",
+      subject: "Issue with water quality ",
       image:
         "https://ik.imagekit.io/aq3ybtarw/CRM/irene-strong-v2aKnjMbP_k-unsplash-min.jpg?updatedAt=1680421088764",
-      leadType: "Warm Lead",
+      leadType: "High Priority",
+      isOnline: false,
     },
     {
       id: 4,
-      title: "Madhera Verma",
+      title: "Mady Verma",
       email: "madhera.verma@example.com",
       contactNumber: "   9876543210",
       leadSource: "Website",
+      description: "I have noticed that the water coming out of my water purifier has an unusual taste and smell. I'm concerned about the quality of the water being",
+      DeviceId: "293@hds",
+      TicketId: "73e823",
+      RaisedId: "Chatbot, 10 jan 10:30",
       leadOwner: "Mady",
-      leadCreated: "2022-04-01",
-      description: "Follow up is pending",
+      leadCreated: "13th May 2022 at 3:00",
+      subject: "Issue with water quality ",
       image:
         "https://ik.imagekit.io/aq3ybtarw/CRM/irene-strong-v2aKnjMbP_k-unsplash-min.jpg?updatedAt=1680421088764",
-      leadType: "Cold Lead",
+      leadType: "Low Priority",
+      isOnline: true,
     },
+
     {
       id: 5,
       title: "Hari Verma",
       email: "hari.verma@example.com",
       contactNumber: "   9876543210",
       leadSource: "Event",
+      description: "I have noticed that the water coming out of my water purifier has an unusual taste and smell. I'm concerned about the quality of the water being",
+      DeviceId: "293@hds",
+      TicketId: "73e823",
+      RaisedId: "Chatbot, 10 jan 10:30",
       leadOwner: "hari",
-      leadCreated: "2022-02-01",
-      description: "Meeting is scheduled for 5th july at 3:00 pm.",
+      leadCreated: "13th May 2022 at 3:00",
+      subject: "Issue with water quality ",
       image:
         "https://ik.imagekit.io/aq3ybtarw/CRM/irene-strong-v2aKnjMbP_k-unsplash-min.jpg?updatedAt=1680421088764",
-      leadType: "Hot Lead",
+      leadType: "High Priority",
+      isOnline: false,
     },
-    {
-      id: 6,
-      title: "Hari Verma",
-      email: "hari.verma@example.com",
-      contactNumber: "   9876543210",
-      leadSource: "Event",
-      leadOwner: "hari",
-      leadCreated: "2022-02-01",
-      description: "Meeting is scheduled for 5th july at 3:00 pm.",
-      image:
-        "https://ik.imagekit.io/aq3ybtarw/CRM/irene-strong-v2aKnjMbP_k-unsplash-min.jpg?updatedAt=1680421088764",
-      leadType: "Hot Lead",
-    },
-
   ];
 
-  // Set the initial selectedCard to the first object in the cardData array
+  // Set the initial selectedCard to the first object in the supportData array
   useEffect(() => {
-    setSelectedCard(cardData[0]);
+    setSelectedCard(supportData[0]);
   }, []);
 
   const handleCardClick = (card) => {
@@ -145,11 +165,11 @@ const CardInfo = ({ onCardSelect }) => {
     onCardSelect(card);
   };
 
-  // Filter cardData array based on selected lead type
+  // Filter supportData array based on selected lead type
   const filteredCardData =
     selectedLeadType === null
-      ? cardData
-      : cardData.filter((card) => card.leadType === selectedLeadType);
+      ? supportData
+      : supportData.filter((card) => card.leadType === selectedLeadType);
 
   return (
     <>
@@ -157,25 +177,25 @@ const CardInfo = ({ onCardSelect }) => {
         <div className="flex justify-between">
           <div className="text-blue-500">
             <button
-              onClick={showLeadModal}
+              onClick={showTicketModal}
               className="mb-3 font-semibold flex sm:mr-20 mr-24"
             >
-              <span className="p-1">
+              <span onClick={showTicketModal} className="p-1">
                 <AiOutlinePlus className="font-bold" />
               </span>
-              Create Lead
+              Create Ticket
             </button>
           </div>
-          <div className="text-blue-500">
-            <MdNotifications size={20} className="m-auto" />
+          <div className="text-blue-500 flex space-x-4">
+            <HiBookOpen size={22} />
+            <MdNotifications size={20} />
           </div>
         </div>
-
 
         <div className="search-wrap flex mb-6 ">
           <Input
             size="large"
-            placeholder="Search"
+            placeholder="Search by Text"
             prefix={<AiOutlineSearch />}
             className="w-full mr-3 shadow-md "
           />
@@ -185,68 +205,60 @@ const CardInfo = ({ onCardSelect }) => {
           </button>
         </div>
 
-        <div className="flex flex-col ">
-          <div className="flex text-black py-1 pb-6 flex-wrap  justify-center space-x-1 lg:space-x-3 ">
-            <button className="border border-blue-400 rounded-2xl  text-center text-blue-500 inline-block px-2 mb-3 lg:mb-0 text-xs  ">
-              All
-            </button>
-            <button className="border border-blue-400 rounded-3xl p-1 text-center text-blue-500 inline-block px-2 mb-3 lg:mb-0 text-xs ">
-              Upcoming task
-            </button>
-            <button className="border border-blue-400 rounded-3xl p-1 text-center text-blue-500 inline-block px-2 mb-3 lg:mb-0 text-xs ">
-              New leads
-            </button>
-            <button className="border border-blue-400 rounded-3xl p-1 text-center text-blue-500 inline-block px-2 mb-3 lg:mb-0 text-xs ">
-              Contacted leads
-            </button>
-          </div>
-        </div>
-
-
-
-        <div className="flex flex-col ">
-          <div className="overflow-y-auto" style={{ height: "calc(100vh - 20px )" }}>
+        <div className="flex flex-col card-lead-wrap ">
+          <div
+            className="overflow-y-auto"
+            style={{ height: "calc(100vh - 10px)" }}
+          >
             {filteredCardData.map((card) => (
               <div
-                className={`card-container mb-8 bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer ${selectedCardId === card.id ? "selected" : ""
+                className={`card-container mb-8 bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer ${selectedCardId === card.id ? "selected-ticket" : ""
                   }`}
                 key={card.id}
                 onClick={() => handleCardClick(card)}
               >
-                <div className="flex px-4 pt-4 pb-1 ">
-                  <div className="w-1/5 mt-2">
-                    <div className="card-img-wrap ">
+                <div class="flex px-4 pt-4 pb-1">
+                  <div class="w-2/12 mt-2">
+                    <div class="card-img-wrap">
                       <img
-                        className="card-image"
+                        class="card-image"
                         src={card.image}
                         alt={card.title}
                       />
                     </div>
                   </div>
-                  <div className="w-full px-4  ">
-                    <h3 className="text-lg font-normal text-md ">{card.title}</h3>
-                    <p className="text-gray-600 text-base card-description">
-                      {card.description}
+                  <div class="w-6/12 px-4">
+                    <h3 className={`card ${card.isOnline ? "online" : ""}`}>
+                      {card.title}
+                    </h3>
+                    <p class="text-gray-600 text-xs card-description">
+                      {card.subject}
                     </p>
-                    <div className="mt-4">
+                    <span className="ticket-created">{card.leadCreated}</span>
+                    <div class="mt-2">
                       <button
                         style={getButtonStyle(card.leadType)}
-                        className="card-button"
+                        class="text-xs p-1 px-2 rounded-xl"
                       >
                         {card.leadType}
                       </button>
                     </div>
+                  </div>
+                  <div class="w-4/12 mt-1 ">
+                    <button className="remain-btn m-auto flex text-xs">
+                      {" "}
+                      0 h remaining
+                    </button>
                   </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
-
       </div>
-      <CreateLead
-        visible={isLeadModalVisible}
-        onCancel={handleLeadModalCancel}
+      <CreateTicket
+        visible={isTicketModalVisible}
+        onCancel={handleTicketModalCancel}
       />
       <FilterModal
         visible={isFilterModalVisible}
@@ -256,4 +268,4 @@ const CardInfo = ({ onCardSelect }) => {
   );
 };
 
-export default CardInfo;
+export default SupportCard;

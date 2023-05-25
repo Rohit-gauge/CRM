@@ -4,14 +4,17 @@ import { Select } from "antd";
 import { DatePicker, TimePicker } from "antd";
 import dayjs from "dayjs";
 import { AiFillCalendar } from "react-icons/ai";
+import { CloseOutlined } from "@ant-design/icons";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 dayjs.extend(customParseFormat);
+
 
 const { Option } = Select;
 const CreateDeal = ({ visible, onCancel }) => {
   const handleCancel = () => {
     onCancel();
   };
+ 
   const datePickerSuffixIcon = <AiFillCalendar className="text-blue-500" />;
   // const timePickerSuffixIcon = <AiFillClockCircle className="text-blue-500" />;
   return (
@@ -20,8 +23,9 @@ const CreateDeal = ({ visible, onCancel }) => {
       onCancel={onCancel}
       footer={null}
       centered={true}
-      closable={false}
+      closable={true}
       maskClosable={true}
+      closeIcon={<CloseOutlined />}
       className="rounded-sm my-custom-call-class"
       width={410}
     >

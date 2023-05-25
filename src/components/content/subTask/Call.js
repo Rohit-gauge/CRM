@@ -19,14 +19,14 @@ const Call = () => {
                       <img className="call-image ml-4  " src={cardData.image} alt="test-img" />
                     </div>
                   </div>
-                  <div className="w-full  ">
+                  <div className="w-full sm:ml-2  ">
                     <h3 className="text-sm font-medium ">{cardData.title}</h3>
                     <p className="text-gray-600 text-xs  call-time">
                       10th March 2022, 6:30 pm
                     </p>
                   </div>
 
-                  <div className="add-note absolute right-14">
+                  <div className="add-note absolute lg:right-14 right-3">
                   <button className="mb-3 text-blue-500 font-semibold flex">
                                 <span className="p-1 "><AiOutlinePlus className="font-bold" /></span> Add Notes
                               </button>
@@ -75,13 +75,13 @@ const Call = () => {
                       <img className="call-image ml-4  " src={cardData.image} alt="test-img" />
                     </div>
                   </div>
-                  <div className="w-full  ">
+                  <div className="w-full sm:ml-2  ">
                     <h3 className="text-sm font-medium ">{cardData.title}</h3>
                     <p className="text-gray-600 text-xs  call-time">
                       10th March 2022, 6:30 pm
                     </p>
                   </div>
-                  <div className="add-note absolute right-14">
+                  <div className="add-note absolute lg:right-14 right-3">
                   <button className="mb-3 text-blue-500 font-semibold flex">
                                 <span className="p-1 "><AiOutlinePlus className="font-bold" /></span> Add Notes
                               </button>

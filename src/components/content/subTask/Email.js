@@ -9,21 +9,21 @@ const Email = () => {
     <div className="h-full overflow-auto">
       <div style={{ height: "400px", overflow: "auto" }}>
         <div className="mb-6 mx-6">
-          <div className="email-info-wrap rounded-lg shadow-md p-4 ">
+          <div className="email-info-wrap rounded-lg shadow-md  ">
             <Row>
               <Col span={24}>
                 <div className="flex  pt-4 pb-1 ">
-                  <div className="lg:w-1/12 w-1/5">
+                  <div className="lg:w-1/12 w-1/6">
                     <div className="card-img-wrap relative ">
                       <img className="call-image ml-4  " src={cardData.image} />
                     </div>
                   </div>
-                  <div className="w-full  ml-1 ">
+                  <div className="rw-full lg:px-2  ml-1 ">
                     <h3 className="text-sm font-medium ">{cardData.title}</h3>
                     <h4 className="text-sm font-normal ">{cardData.email}</h4>
                     <p className="text-gray-600 text-xs  call-time">4h ago</p>
 
-                    <div className="dot-icon absolute top-0 right-0">
+                    <div className="dot-icon absolute top-3 right-3">
                       <BsThreeDotsVertical />
                     </div>
                   </div>
@@ -50,23 +50,23 @@ const Email = () => {
         </div>
 
         <div className="mb-6 mx-6">
-          <div className="email-info-wrap rounded-lg shadow-md p-4 ">
+          <div className="email-info-wrap rounded-lg shadow-md ">
             <Row>
               <Col span={24}>
                 <div className="flex  pt-4 pb-1 ">
-                  <div className="lg:w-1/12 w-1/5">
+                  <div className="lg:w-1/12 w-1/6">
                     <div className="card-img-wrap relative ">
                       <img className="call-image ml-4  " src={cardData.image} />
                     </div>
                   </div>
-                  <div className="w-full  ">
+                  <div className="rw-full lg:px-2  ">
                     <h3 className="text-sm font-medium ">Mathew</h3>
                     <h4 className="text-sm font-normal ">mathew@gmail.com</h4>
                     <p className="text-gray-600 text-xs relative  call-time">
                       4h ago
                     </p>
 
-                    <div className="dot-icon absolute top-0 right-0">
+                    <div className="dot-icon absolute top-3 right-3">
                       <BsThreeDotsVertical />
                     </div>
                   </div>
@@ -93,23 +93,23 @@ const Email = () => {
         </div>
 
         <div className="mb-6 mx-6">
-          <div className="email-info-wrap rounded-lg shadow-md p-4 ">
+          <div className="email-info-wrap rounded-lg shadow-md ">
             <Row>
               <Col span={24}>
                 <div className="flex  pt-4 pb-1 ">
-                  <div className="lg:w-1/12 w-1/5">
+                  <div className="lg:w-1/12 w-1/6">
                     <div className="card-img-wrap relative ">
                       <img className="call-image ml-4  " src={cardData.image} />
                     </div>
                   </div>
-                  <div className="w-full  ">
+                  <div className="rw-full lg:px-2  ">
                     <h3 className="text-sm font-medium ">Mathew</h3>
                     <h4 className="text-sm font-normal ">mathew@gmail.com</h4>
                     <p className="text-gray-600 text-xs relative  call-time">
                       4h ago
                     </p>
 
-                    <div className="dot-icon absolute top-0 right-0">
+                    <div className="dot-icon absolute top-3 right-3">
                       <BsThreeDotsVertical />
                     </div>
                   </div>

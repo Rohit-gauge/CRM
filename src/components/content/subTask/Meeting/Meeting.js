@@ -29,7 +29,7 @@ const Meeting = () => {
           onClick={() => handleClick("upcoming")}
           className={`taskbar-col text-center ${
             activeTab === "upcoming"
-              ? "border-b-2 text-blue-500  border-blue-500 pl-4"
+              ? "border-b-2 text-blue-500  border-blue-500 ml-6"
               : "pl-4"
           }`}
         >
@@ -42,7 +42,7 @@ const Meeting = () => {
           onClick={() => handleClick("completed")}
           className={`taskbar-col text-center ${
             activeTab === "completed"
-              ? "border-b-2 text-blue-500 border-blue-500 pl-4"
+              ? "border-b-2 text-blue-500 border-blue-500 ml-6"
               : "pl-4"
           }`}
         >
