@@ -11,14 +11,14 @@ const meetings = [
   {
     id: 1,
     title: "Follow Up",
-    date: "2023-05-03",
+    date: "2023-05-25",
     time: "10:00 pm - 4:30 pm",
     status: "completed",
   },
   {
     id: 2,
     title: "Project review",
-    date: "2023-05-04",
+    date: "2023-05-25",
     time: "14:00",
     status: "completed",
   },

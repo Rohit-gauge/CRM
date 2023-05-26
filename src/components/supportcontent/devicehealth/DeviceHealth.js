@@ -4,7 +4,7 @@ import { CiMobile2 } from "react-icons/ci";
 
 const DeviceHealth = () => {
   return (
-   <div className='sm:w-3/4 w-1/2  mt-4'>
+   <div className='md:w-3/4 mt-4'>
      <div className="notification-history-wrap d-health-wrap m-2 p-6  ">
                 <div className="notification-heading flex rounded-sm justify-center m-auto">
                     <span class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-blue-400 shadow-sm">

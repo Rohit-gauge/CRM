@@ -10,6 +10,7 @@ import {
 import TransferTicketModal from "../ModalSupport/TransferTicket";
 import MergeTicket from "../ModalSupport/MergeTicket";
 import CloseTicketModal from "../ModalSupport/CLoseTicketModal";
+import Subjects from "../TicketSubject/Subject";
 
 
 const CloseTicket = ({ supportData }) => {
@@ -87,9 +88,9 @@ const CloseTicket = ({ supportData }) => {
             </div>
 
             <div className="contact-btn-wrap  pb-2 pt-3 flex flex-wrap justify-center sm:justify-start ">
-                <button className="contact-btn flex items-center bg-6192FF rounded-md px-4 py-2 ">
+                {/* <button className="contact-btn flex items-center bg-6192FF rounded-md px-4 py-2 ">
                     <IoMdCall className="mr-2 text-white" size={20} />
-                </button>
+                </button> */}
 
                 <button className="contact-btn flex items-center bg-6192FF rounded-md px-4 py-2">
                     <HiOutlineChatAlt2 className="mr-2 text-white" size={20} />
@@ -114,6 +115,11 @@ const CloseTicket = ({ supportData }) => {
                 <button onClick={showTransferModal} className="transfer-btn flex items-center bg-6192FF rounded-md px-4 py-2">
                     <span className="text-white font-normal text-base">Transfer</span>
                 </button>
+            </div>
+
+
+            <div className="subject">
+                <Subjects supportData={supportData}  />
             </div>
 
           

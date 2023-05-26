@@ -208,7 +208,7 @@ const CardInfo = ({ onCardSelect }) => {
           <div className="overflow-y-auto" style={{ height: "calc(100vh - 20px )" }}>
             {filteredCardData.map((card) => (
               <div
-                className={`card-container mb-8 bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer ${selectedCardId === card.id ? "selected" : ""
+                className={`card-container mb-2 bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer ${selectedCardId === card.id ? "selected" : ""
                   }`}
                 key={card.id}
                 onClick={() => handleCardClick(card)}

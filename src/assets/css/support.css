@@ -79,7 +79,7 @@
 @media only screen and (max-width: 768px) {
 
 .ant-steps.ant-steps-vertical.steps-container.css-dev-only-do-not-override-1e3x2xa.ant-steps-small.ant-steps-dot {
-  padding-left: 50px;
+  padding-left: 50px !important;
 }
 
 :where(.css-dev-only-do-not-override-1e3x2xa).ant-steps.ant-steps-dot .ant-steps-item-title, :where(.css-dev-only-do-not-override-1e3x2xa).ant-steps.ant-steps-dot.ant-steps-small .ant-steps-item-title {  

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Col, Row } from "antd";
 import Notification from "../Notification/Notificaiton";
 import DeviceHealth from "../devicehealth/DeviceHealth";
-import Subject from "../TicketSubject/Subject";
+import Analytics from "../Analytics/Analytics";
 
 
 const DeviceDetail = ({supportData}) => {
@@ -107,14 +107,14 @@ const DeviceDetail = ({supportData}) => {
               : "pl-4"
           }`}
         >
-          <button className=" meet-btn text-center  p-2">Subject</button>
+          <button className=" meet-btn text-center  p-2">Analytics</button>
         </Col>
       </Row>
 
       <div className="flex-1 py-4">
         {activeTab === "notification" && <Notification />}
         {activeTab === "devicehealth" && <DeviceHealth />}
-        {activeTab === "subject" && <Subject supportData={supportData} />}
+        {activeTab === "subject" && <Analytics/>}
       </div>
     </div>
         </>

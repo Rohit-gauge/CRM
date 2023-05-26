@@ -76,7 +76,7 @@ const SupportCard = ({ onCardSelect }) => {
       image:
         "https://ik.imagekit.io/aq3ybtarw/CRM/irene-strong-v2aKnjMbP_k-unsplash-min.jpg?updatedAt=1680421088764",
       leadType: "Low Priority",
-      isOnline: true,
+  
     },
     {
       id: 2,
@@ -131,7 +131,7 @@ const SupportCard = ({ onCardSelect }) => {
       image:
         "https://ik.imagekit.io/aq3ybtarw/CRM/irene-strong-v2aKnjMbP_k-unsplash-min.jpg?updatedAt=1680421088764",
       leadType: "Low Priority",
-      isOnline: true,
+     
     },
 
     {
@@ -212,7 +212,7 @@ const SupportCard = ({ onCardSelect }) => {
           >
             {filteredCardData.map((card) => (
               <div
-                className={`card-container mb-8 bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer ${selectedCardId === card.id ? "selected-ticket" : ""
+                className={`card-container mb-2 bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer ${selectedCardId === card.id ? "selected-ticket" : ""
                   }`}
                 key={card.id}
                 onClick={() => handleCardClick(card)}
