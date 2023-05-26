@@ -208,7 +208,7 @@ const SupportCard = ({ onCardSelect }) => {
         <div className="flex flex-col card-lead-wrap ">
           <div
             className="overflow-y-auto"
-            style={{ height: "calc(100vh - 10px)" }}
+            style={{ height: "calc(100vh - 80px)" }}
           >
             {filteredCardData.map((card) => (
               <div

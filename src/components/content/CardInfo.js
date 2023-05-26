@@ -205,7 +205,7 @@ const CardInfo = ({ onCardSelect }) => {
 
 
         <div className="flex flex-col ">
-          <div className="overflow-y-auto" style={{ height: "calc(100vh - 20px )" }}>
+          <div className="overflow-y-auto" style={{ height: "calc(100vh - 120px )" }}>
             {filteredCardData.map((card) => (
               <div
                 className={`card-container mb-2 bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer ${selectedCardId === card.id ? "selected" : ""
