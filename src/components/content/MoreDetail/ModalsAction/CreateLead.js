@@ -19,7 +19,7 @@ const CreateLead = ({ visible, onCancel }) => {
       closable={true}
       maskClosable={true}
       closeIcon={<CloseOutlined />}
-      className="rounded-sm "
+      className="rounded-sm mt-4 sm:mt-0 "
       width={600}
     >
       {/* Add your modal content here */}

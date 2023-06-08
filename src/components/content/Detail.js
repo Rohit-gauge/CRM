@@ -1,8 +1,8 @@
 import React, {useContext} from "react";
 import Priority from "./MoreDetail/Priority";
-import Steps from "./MoreDetail/Steps";
 import Taskbar from "./MoreDetail/Taskbar";
 import { CardDataContext } from "../../components/cardContext/CardContext";
+import Steps from "./MoreDetail/Steps";
 
 const Detail = () => {
   const cardData = useContext(CardDataContext);

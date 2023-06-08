@@ -72,7 +72,7 @@ const DeviceDetail = ({supportData}) => {
 
         // </div>
         <>
-        <div className="all-meet-wrap px-6 py-4 sm:ml-10">
+        <div className="all-meet-wrap px-6 py-4 sm:ml-7">
       <Row>
         <Col
           span={6}

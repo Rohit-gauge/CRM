@@ -26,7 +26,7 @@ const CreateDeal = ({ visible, onCancel }) => {
       closable={true}
       maskClosable={true}
       closeIcon={<CloseOutlined />}
-      className="rounded-sm my-custom-call-class"
+      className="rounded-sm"
       width={410}
     >
       {/* Add your modal content here */}

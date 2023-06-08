@@ -2,14 +2,17 @@ import React, { useState, useEffect } from "react";
 // import { Select } from "antd";
 import { HiFilter } from "react-icons/hi";
 import { AiOutlineSearch } from "react-icons/ai";
+import { BiFilterAlt } from "react-icons/bi";
 import { AiOutlinePlus } from "react-icons/ai";
-import { MdNotifications } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 import { Input } from "antd";
 import CreateLead from "./MoreDetail/ModalsAction/CreateLead";
 import FilterModal from "./MoreDetail/ModalsAction/FilterModal";
 
 const CardInfo = ({ onCardSelect }) => {
+  const navigate = useNavigate();
+
   // Function to get button style based on text
   const [selectedCard, setSelectedCard] = useState(0); // state to hold selected card data
   const [selectedCardId, setSelectedCardId] = useState(null);
@@ -131,7 +134,6 @@ const CardInfo = ({ onCardSelect }) => {
         "https://ik.imagekit.io/aq3ybtarw/CRM/irene-strong-v2aKnjMbP_k-unsplash-min.jpg?updatedAt=1680421088764",
       leadType: "Hot Lead",
     },
-
   ];
 
   // Set the initial selectedCard to the first object in the cardData array
@@ -140,9 +142,13 @@ const CardInfo = ({ onCardSelect }) => {
   }, []);
 
   const handleCardClick = (card) => {
-    setSelectedCardId(card.id);
-    setSelectedCard(card);
-    onCardSelect(card);
+    if (window.innerWidth <= 768) {
+      navigate(`/detail/${card.id}`); // Navigate to the detail page with the card id as a parameter
+    } else {
+      setSelectedCardId(card.id);
+      setSelectedCard(card);
+      onCardSelect(card);
+    }
   };
 
   // Filter cardData array based on selected lead type
@@ -154,23 +160,21 @@ const CardInfo = ({ onCardSelect }) => {
   return (
     <>
       <div className="flex flex-col ">
-        <div className="flex justify-between">
-          <div className="text-blue-500">
+        <div className="desktop-search hidden md:block">
+        <div className="flex justify-between ">
+          <div className="text-blue-500 mx-auto md:mx-0 ">
             <button
               onClick={showLeadModal}
-              className="mb-3 font-semibold flex sm:mr-20 mr-24"
+              className="mb-6 md:mb-3 font-semibold flex sm:mr-20  "
             >
-              <span className="p-1">
-                <AiOutlinePlus className="font-bold" />
-              </span>
+             <span>
+             <AiOutlinePlus className="mt-1 font-semibold"/>
+             </span>
               Create Lead
             </button>
           </div>
-          <div className="text-blue-500">
-            <MdNotifications size={20} className="m-auto" />
-          </div>
+         
         </div>
-
 
         <div className="search-wrap flex mb-6 ">
           <Input
@@ -184,9 +188,44 @@ const CardInfo = ({ onCardSelect }) => {
             <HiFilter className="flex m-1 " /> Filter
           </button>
         </div>
+        </div>
+
+        <div className="mobile-search md:hidden">
+        <div className="flex justify-between">
+    <div className="text-blue-500 mx-auto md:mx-0">
+      <button
+        onClick={showLeadModal}
+        className="mb-6 md:mb-3 font-semibold flex sm:mr-20"
+      >
+        Create Lead
+      </button>
+    </div>
+   
+    <div className="search-wrap flex  mb-6">
+    
+    <button className="search-btn md:hidden flex items-center">
+      <AiOutlineSearch size={20} className="mr-1 text-gray-700" />
+    </button>
+    <Input
+      size="large"
+      placeholder="Search"
+      prefix={<AiOutlineSearch  />}
+      className="w-full mr-3 shadow-md md:block hidden"
+    />
+  
+    <button
+      onClick={showFilterModal}
+      className=" md:hidden flex items-center"
+    >
+      <BiFilterAlt size={20} className="flex m-1 text-gray-700" />
+    </button>
+  </div>
+  </div>
+        </div>
+       
 
         <div className="flex flex-col ">
-          <div className="flex text-black py-1 pb-6 flex-wrap  justify-center space-x-1 lg:space-x-3 ">
+          <div className="flex text-black py-1 pb-6 flex-wrap  justify-center space-x-1 lg:space-x-1 ">
             <button className="border border-blue-400 rounded-2xl  text-center text-blue-500 inline-block px-2 mb-3 lg:mb-0 text-xs  ">
               All
             </button>
@@ -202,29 +241,25 @@ const CardInfo = ({ onCardSelect }) => {
           </div>
         </div>
 
-
-
         <div className="flex flex-col ">
-          <div className="overflow-y-auto" style={{ height: "calc(100vh - 120px )" }}>
-            {filteredCardData.map((card) => (
+          <div
+            className="overflow-y-auto"
+            // style={{ height: "calc(100vh - 120px)" }}
+          >
+            {filteredCardData.map((card, index) => (
               <div
-                className={`card-container mb-2 bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer ${selectedCardId === card.id ? "selected" : ""
-                  }`}
+                className={`card-container mb-2 bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer ${
+                  selectedCardId === card.id ? "selected-ticket" : ""
+                }`}
                 key={card.id}
                 onClick={() => handleCardClick(card)}
+               
               >
                 <div className="flex px-4 pt-4 pb-1 ">
-                  <div className="w-1/5 mt-2">
-                    <div className="card-img-wrap ">
-                      <img
-                        className="card-image"
-                        src={card.image}
-                        alt={card.title}
-                      />
-                    </div>
-                  </div>
-                  <div className="w-full px-4  ">
-                    <h3 className="text-lg font-normal text-md ">{card.title}</h3>
+                  <div className="w-full  ">
+                    <h3 className="text-lg font-normal text-md ">
+                      {card.title}
+                    </h3>
                     <p className="text-gray-600 text-base card-description">
                       {card.description}
                     </p>
@@ -242,7 +277,6 @@ const CardInfo = ({ onCardSelect }) => {
             ))}
           </div>
         </div>
-
       </div>
       <CreateLead
         visible={isLeadModalVisible}

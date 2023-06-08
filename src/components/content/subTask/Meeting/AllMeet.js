@@ -10,14 +10,14 @@ const meetings = [
   {
     id: 1,
     title: "Follow Up",
-    date: "2023-05-25",
+    date: "2023-06-01",
     time: "10:00 pm - 4:30 pm",
     status: "completed",
   },
   {
     id: 2,
     title: "Project review",
-    date: "2023-05-26",
+    date: "2023-05-0",
     time: "14:00",
     status: "completed",
   },
@@ -74,34 +74,38 @@ const AllMeet = () => {
 
   return (
     <>
-      <div className="h-full overflow-auto ">
+      <div className="h-full overflow-auto mb-10 ">
         <div style={{ height: "400px", overflow: "auto" }}>
           {/* Today's meetings */}
 
           <div className="meetings-container mb-4 mt-4">
             {/* Today's meetings */}
-            <div className="today-meetings mb-2">
+            <div className={` mb-2`}>
               <Title level={5}>Today</Title>
              
               <Row>
-                {groupedMeetings[todayString] &&
+              {groupedMeetings[todayString] &&
                   groupedMeetings[todayString].map((meeting) => (
                     <Col key={meeting.id} xs={24} lg={22}>
                       <Card
-                        className={`meeting-card ${meeting.status} `}
+                        className={`today-meeting ${meeting.status}`}
+                       
                       >
-                        <div className="card-meet-wrap relative">
-                        <div className="dot-icon absolute -top-3 -right-3">
+                        <div className="card-meet-wrap relative ">
+                        {/* <div className="dot-icon absolute -top-3 -right-3">
                       <BsThreeDotsVertical />
-                    </div>
-                          <div className="title font-bold">{meeting.title}</div>
-                          <p className="mb-3 font-normal">Highlight unique selling points</p>
+                    </div> */}
+                    <div className="left-wrap w-1/2">
+                    <div className="title font-bold">{meeting.title}</div>
+                          <p className="mb-3 font-normal text-xs md:text-md text-gray-700">Highlight unique selling points</p>
                           <p className="text-blue-500 font-normal">
                             {" "}
                             {meeting.time}
                           </p>
                           <button className="mb-3 bg-blue-400 mt-1  px-3 rounded-2xl hover:bg-blue-700 text-white flex"><span>1</span> <HiDocumentText className="mt-1" /></button>
-                          <div className="absolute right-5 top-0">
+                    </div>
+                        
+                          <div className="absolute right-0 top-0">
                             <div className="buttons-wrap flex flex-col">
                               <button className="mb-3 text-blue-500 font-semibold">
                                 + Add note
@@ -126,19 +130,20 @@ const AllMeet = () => {
 
             {/* Yesterday's meetings */}
             {groupedMeetings[yesterdayString] && (
-              <div className="yesterday-meetings mb-4 mt-4">
+              <div className={`yesterday-meeting mb-4 mt-4`}>
                 <Title level={5}>Yesterday</Title>
                 <Row>
-                  {groupedMeetings[yesterdayString].map((meeting) => (
+                {groupedMeetings[yesterdayString].map((meeting) => (
                     <Col key={meeting.id} xs={24} lg={22}>
                       <Card
-                        className={`meeting-card ${meeting.status} bg-gray-200`}
+                        className={`meeting-card ${meeting.status}`}
+                       
                       >
-                        <div className="card-meet-wrap relative">
+                        <div className="card-meet-wrap relative ">
                         <div className="dot-icon absolute -top-3 -right-3">
                       <BsThreeDotsVertical />
                     </div>
-                          <div className="title font-bold">{meeting.title}</div>
+                          <div className="title   font-bold">{meeting.title}</div>
                           <p className="mb-3 font-normal">Highlight unique selling points</p>
                           <p className="text-blue-500 font-normal">
                             {" "}
@@ -172,7 +177,7 @@ const AllMeet = () => {
             )}
 
             {/* Upcoming meetings */}
-            <div className="upcoming-meeting mb-4 ">
+            <div className={`mb-4`}>
               <Title level={5}>Upcoming</Title>
               {Object.keys(groupedMeetings)
                 .filter(
@@ -181,15 +186,16 @@ const AllMeet = () => {
                 .map((date) => (
                   <div key={date} className="mb-2">
                     <Row>
-                      {groupedMeetings[date].map((meeting) => (
+                    {groupedMeetings[date].map((meeting) => (
                         <Col key={meeting.id} xs={24} lg={22}>
                           <Card
-                            className={`meeting-card ${meeting.status} bg-gray-200`}
+                           className={`upcoming-meeting  ${meeting.status}`}
+                            
                           >
                             <div className="card-meet-wrap">
-                              <div className="title">{meeting.title}</div>
+                              <div className="title font-semibold">{meeting.title}</div>
 
-                              <p className="text-blue-500"> {meeting.time}</p>
+                              <p> {meeting.time}</p>
                             </div>
                           </Card>
                         </Col>

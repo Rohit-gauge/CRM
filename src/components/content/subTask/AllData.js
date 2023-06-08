@@ -1,8 +1,10 @@
 import React from "react";
-import { Card, Row, Col, Typography } from "antd";
+import {  Row, Col, Typography } from "antd";
 import { HiDocumentText } from "react-icons/hi";
-import { BsThreeDotsVertical } from "react-icons/bs";
-import { FaVideo } from "react-icons/fa";
+import { BsPencilFill } from "react-icons/bs";
+import { RiDeleteBin5Line } from "react-icons/ri";
+import { AiOutlineCheck } from "react-icons/ai";
+import DealsTable from "../taskactivities/DealsTable/DealsTable";
 
 const { Title } = Typography;
 
@@ -73,64 +75,130 @@ const AllData = () => {
   const todayString = formatDateString(today);
 
   return (
-    <div className="h-full overflow-auto mx-6 ">
-      <div style={{ height: "250px", overflow: "auto" }}>
+    <div className="h-full overflow-y-auto md:mx-6 w-11/12 md:w-4/5  mx-auto">
+      <div className="h-full">
         {/* Today's meetings */}
 
-        <div className="meetings-container mb-4 mt-4">
-          {/* Today's meetings */}
-          <div className="today-meetings">
-            <Title level={5}>Today</Title>
+        <div className="data-wrap">
+          <div className="title-all-data text-xs text-gray-400 flex justify-between pb-2">
+            <div className="title-wrap">Notes</div>
 
-            <div className="flex mb-2">
-              <div className="meet-icon w-fit text-white bg-blue-400 rounded-full my-2 p-2 items-center justify-center  flex">
-                <FaVideo className="m-1 " />
+            <div className="title-time">1 Jun 2023, 3:30pm</div>
+          </div>
+
+          <div className="notes-wrap ">
+            <div className="mb-6  ">
+              <div className="call-info-wrap rounded-lg shadow-md px-4 pb-4">
+                <Row>
+                  <Col span={24}>
+                    <div className="flex  pt-4 pb-1 ">
+                      <div className="w-full   ">
+                        <h3 className="text-sm font-medium text-gray-700  ">
+                          Created By{" "}
+                        </h3>
+                        <p className="text-gray-600 text-xs  call-time">
+                          10th March 2022, 6:30 pm
+                        </p>
+                      </div>
+                    </div>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col span={24}>
+                    <div className="text-gray-600 ">
+                      Interested in specific product features, send more
+                      information.
+                    </div>
+                  </Col>
+                </Row>
               </div>
-              <h2 className="font-semibold my-auto mx-2 text-blue-400">
-                Meeting
-              </h2>
             </div>
+          </div>
+        </div>
+
+        <div className="data-wrap">
+          <div className="title-all-data text-xs text-gray-400 flex justify-between pb-2">
+            <div className="title-wrap">Task</div>
+
+            <div className="title-time">1 Jun 2023, 3:30pm</div>
+          </div>
+
+          <div className="mb-6 ">
+          <div className="task-info-wrap rounded-lg shadow-md  pt-2 pb-4 relative ">
+            <Row>
+              <Col span={24}>
+                <div className=" p-2 px-4">
+
+                  <div className="task-button-update flex absolute lg:right-5 right-2 top-3 space-x-3">
+                    <div className="edit"><BsPencilFill size={14} /></div>
+                    <div className="del"><RiDeleteBin5Line size={15} className="text-red-500" /></div>
+                  </div>
+                  <div className="flex w-3/4 ">
+                    <span>
+                      {" "}
+                      <HiDocumentText size={20} className="mt-1 text-blue-600 mr-1" />
+                    </span>
+                    <div>
+                      <h2 className="font-bold text-sm text-gray-600 ">Set up a meeting with Harish Verma Tomorrow</h2>
+                      <p className="mt-1">
+                        {" "}
+                        Jane expressed interest in the proposal during a phone call on March 11, 2023.
+                      </p>
+                    </div>{" "}
+
+                  </div>
+                </div>
+              </Col>
+            </Row>
+
+           
+            
 
             <Row>
-              {groupedMeetings[todayString] &&
-                groupedMeetings[todayString].map((meeting) => (
-                  <Col key={meeting.id} xs={24} lg={22} className="mb-4">
-                    <Card className={`meeting-card ${meeting.status} `}>
-                      <div className="card-meet-wrap relative ">
-                        <div className="dot-icon absolute -top-3 -right-3">
-                          <BsThreeDotsVertical />
-                        </div>
-                        <div className="title font-bold">{meeting.title}</div>
-                        <p className="mb-3 font-normal">
-                          Highlight unique selling points
-                        </p>
-                        <p className="text-blue-500 font-normal">
-                          {" "}
-                          {meeting.time}
-                        </p>
-                        <button className="mb-3 bg-blue-400 mt-1  px-3 rounded-2xl hover:bg-blue-700 text-white flex">
-                          <span>1</span> <HiDocumentText className="mt-1" />
-                        </button>
-                        <div className="absolute right-5 top-0">
-                          <div className="buttons-wrap flex flex-col">
-                            <button className="mb-3 text-blue-500 font-semibold">
-                              + Add note
-                            </button>
-
-                            <button
-                              href={meeting.link}
-                              className="bg-blue-400 hover:bg-blue-700 text-white font-semibold py-1 px-5 mt-2 rounded-sms"
-                            >
-                              Join
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </Card>
-                  </Col>
-                ))}
+              <Col span={6}>
+                <div className="task-wrap p-2  pl-8">
+                  <div className="task-description ">Priority Level</div>
+                  <p className="danger"> High</p>
+                </div>
+              </Col>
+              <Col span={6}>
+                <div className="task-wrap p-2 text-center ">
+                  <div className="task-description ">Due Date</div>
+                  <p> 13th March 2022</p>
+                </div>
+              </Col>
+              <Col span={6}>
+                <div className="task-wrap p-2 text-center">
+                  <div className="task-description ">Reminder </div>
+                  <p> 30 Mins before</p>
+                </div>
+              </Col>
+              <Col span={6}>
+                <div className="task-wrap p-2 text-center">
+                  <div className="task-description ">Created On</div>
+                  <p>10th March 2022</p>
+                </div>
+              </Col>
             </Row>
+
+            <div className="py-4 px-4 pl-8 ">
+            
+              <button className="task-complete-btn px-2 py-2 flex">  <span className="m-1"><AiOutlineCheck size={15} /></span>Task Completed</button>
+            </div>
           </div>
+        </div>
+        </div>
+
+        <div className="data-wrap">
+          <div className="title-all-data text-xs text-gray-400 flex justify-between pb-2">
+            <div className="title-wrap">Deal</div>
+
+            <div className="title-time">3 Jun 2023, 3:30pm</div>
+          </div>
+
+          <div className="mb-6 ">
+          <DealsTable />
+        </div>
         </div>
       </div>
     </div>

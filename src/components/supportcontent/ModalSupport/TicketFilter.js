@@ -17,7 +17,7 @@ const TicketFilter = ({ visible, onCancel }) => {
       centered={true}
       closable={false}
       maskClosable={true}
-      className="rounded-sm my-custom-ticket-filter-class"
+      className="rounded-sm "
       width={440}
     >
       {/* Add your modal content here */}

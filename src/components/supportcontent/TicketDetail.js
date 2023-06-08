@@ -1,23 +1,17 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { CardDataContext } from "../../components/cardContext/CardContext";
-import CloseTicket from "./content/CloseTicket";
-import TicketStatus from "./content/TicketStatus";
-import DeviceDetail from "./content/DeviceDetail";
+import CloseTicket from "./suppordetailcontent/CloseTicket";
+import TicketStatus from "./suppordetailcontent/TicketStatus";
+import DeviceDetail from "./suppordetailcontent/DeviceDetail";
 
 const TicketDetail = () => {
- 
-
- 
-
-
-
   const supportData = useContext(CardDataContext);
-  
+
   return (
-    <div className="relative">  
+    <div className="relative">
       {supportData ? (
         <div className="card-container-right bg-white rounded-lg shadow-2xl overflow-hidden cursor-pointer">
-          <div >
+          <div>
             <CloseTicket supportData={supportData} />
             <TicketStatus />
             <DeviceDetail supportData={supportData} />

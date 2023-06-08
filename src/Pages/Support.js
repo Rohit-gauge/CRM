@@ -65,7 +65,17 @@ const Support = () => {
           </Col>
         </Row>
       </div> */}
-      <div className=" sm:m-20 mt-20 md:mt-4 px-6 ">
+         <div className="sm:ml-24">
+        <div className="support-container grid grid-cols-12 ">
+          <div className="card-list-container md:ml-20 pt-0 sm:mt-10 col-span-full md:col-span-4">
+            <SupportCard onCardSelect={handleCardSelection} />
+          </div>
+          <div className="supports-container hidden md:block col-span-full md:col-span-8 md:ml-10 md:mt-10 md:mr-12">
+             <TicketDetail />
+          </div>
+        </div>
+      </div>
+      {/* <div className=" sm:m-20 mt-20 md:mt-4 px-6 ">
        
        <div className=" rounded-lg md:mt-10 mt-4 ">
          <div className="grid grid-cols-12 gap-4 mb-4">
@@ -80,7 +90,7 @@ const Support = () => {
 
      
 
-   </div>
+   </div> */}
     </CardDataContext.Provider>
 
 

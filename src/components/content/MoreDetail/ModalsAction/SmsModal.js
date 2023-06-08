@@ -15,7 +15,8 @@ const SmsModal = ({ visible, onCancel }) => {
       centered={true}
       closable={true}
       maskClosable={true}
-      className="rounded-sm my-custom-email-class"
+      className="rounded-sm "
+      width={450}
     >
       {/* Add your modal content here */}
       <div className="note-moadal-wrap rounded-sm">

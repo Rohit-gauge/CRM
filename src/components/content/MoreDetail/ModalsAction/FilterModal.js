@@ -16,7 +16,7 @@ const FilterModal = ({ visible, onCancel }) => {
       centered={true}
       closable={false}
       maskClosable={true}
-      className="rounded-sm my-custom-filter-class"
+      className="rounded-sm mt-10"
       width={440}
     >
       {/* Add your modal content here */}

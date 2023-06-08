@@ -13,7 +13,8 @@ const NoteModal = ({ visible, onCancel }) => {
       centered={true}
       closable={false}
       maskClosable={true}
-      className="rounded-sm my-custom-modal-class"
+      className="rounded-sm "
+      width={450}
     >
       {/* Add your modal content here */}
       <div className="note-moadal-wrap rounded-sm">

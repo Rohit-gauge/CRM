@@ -5,11 +5,11 @@ import ActivityList from "../taskactivities/ActivityList";
 import NotesList from "../taskactivities/NotesList";
 import Deals from "../taskactivities/Deals";
 import Analytics from "../taskactivities/Analytics";
+import Sms from "../subTask/Sms";
 
 
 const Taskbar = () => {
   const [activeTab, setActiveTab] = useState("activities");
- 
   const handleClick = (tab) => {
     if (tab === activeTab) {
       // If the clicked tab is already active, do nothing
@@ -17,22 +17,29 @@ const Taskbar = () => {
     }
     setActiveTab(tab);
   };
-
   return (
-    <div className="flex flex-col h-full lg:mx-14 mt-7">
-      <div className="flex lg:justify-between justify-center items-center  text-black py-4 px-0 sm:px-4 ">
+    <div className="flex flex-col h-full lg:mx-6 mt-2">
+      <div className="flex lg:justify-between justify-center items-center  text-black pt-4  px-0 sm:px-4 ">
       
         <div className="flex ">
         
-          <button
-            onClick={() => handleClick("activities")}
-            className={`lg:mr-8 mr-2 ${
-              activeTab === "activities" ? "bg-blue-500" : ""
-            } taskbar-btn`}
-          >
-            Activities
-          </button>
-          <button
+        <button
+  onClick={() => handleClick("activities")}
+  className={`lg:mr-8 mr-2 activity-status ${
+    activeTab === "activities" ? "active" : ""
+  } taskbar-btn`}
+>
+  Activities
+</button>
+        <button
+  onClick={() => handleClick("sms")}
+  className={`lg:mr-8 mr-2 activity-status ${
+    activeTab === "sms" ? "active" : ""
+  } taskbar-btn`}
+>
+  Chat
+</button>
+          {/* <button
             onClick={() => handleClick("task")}
             className={`lg:mr-8 mr-2 ${
               activeTab === "task" ? "bg-blue-500" : ""
@@ -51,21 +58,22 @@ const Taskbar = () => {
             className={`lg:mr-8 mr-2 ${activeTab === "deals" ? "bg-blue-500" : ""} taskbar-btn`}
           >
             Deals
-          </button>
-          <button
+          </button> */}
+          {/* <button
             onClick={() => handleClick("analytics")}
             className={`lg:mr-8 mr-2 ${activeTab === "analytics" ? "bg-blue-500" : ""} taskbar-btn`}
           >
            Analytics
-          </button>
+          </button> */}
         </div>
       </div>
       <div className="flex-1 py-4">
         {activeTab === "activities" && <ActivityList />}
-        {activeTab === "task" && <TaskList />}
+        {activeTab === "sms" && <Sms />}
+        {/* {activeTab === "task" && <TaskList />}
         {activeTab === "notes" && <NotesList />}
         {activeTab === "deals" && <Deals />}
-        {activeTab === "analytics" && <Analytics />}
+        {activeTab === "analytics" && <Analytics />} */}
       </div>
     </div>
   );

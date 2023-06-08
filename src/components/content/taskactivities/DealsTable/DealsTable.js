@@ -103,7 +103,7 @@ const DealsTable = () => {
   ];
 
   return (
-    <div className="h-full px-2 mx-4">
+    <div className="h-full ">
       <Table dataSource={dataSource} columns={columns} pagination={false} />
     </div>
   );

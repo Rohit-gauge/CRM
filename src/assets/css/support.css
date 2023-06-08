@@ -14,9 +14,9 @@
 }
 
 .selected-ticket {
-  background-color: #FFE7E7;
-  border: 2px solid #F25D5D;
-  transform: translateY(3px);
+  background-color: #e5e3e3;
+  border: 2px solid #b7b7b7;
+ 
 
 }
 
@@ -44,7 +44,7 @@
 }
 
 :where(.css-dev-only-do-not-override-1e3x2xa).ant-steps {
-  width: 90%;
+  width: 80%;
 }
 
 :where(.css-dev-only-do-not-override-1e3x2xa).ant-steps.ant-steps-dot .ant-steps-item-title,

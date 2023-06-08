@@ -30,7 +30,7 @@ const CallModal = ({ visible, onCancel }) => {
       centered={true}
       closable={false}
       maskClosable={true}
-      className="rounded-sm my-custom-call-log-class"
+      className="rounded-sm "
       width={410}
     >
       {/* Add your modal content here */}
